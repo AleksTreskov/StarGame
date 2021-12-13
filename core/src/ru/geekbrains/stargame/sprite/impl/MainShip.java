@@ -16,7 +16,7 @@ public class MainShip extends Sprite {
     private final Vector2 v0;
     private boolean pressedLeft;
     private boolean pressedRight;
-    private Rect worldBounds;
+    private Rect worldbounds;
     private int leftPointer = INVALID_POINTER;
     private int rightPointer = INVALID_POINTER;
 
@@ -29,11 +29,11 @@ public class MainShip extends Sprite {
     @Override
     public void update(float delta) {
         pos.mulAdd(v, delta);
-        if (getLeft() > worldBounds.getRight()) {
-            setRight(worldBounds.getLeft());
+        if (getLeft() > worldbounds.getRight()) {
+            setRight(worldbounds.getLeft());
         }
-        if (getRight() < worldBounds.getLeft()) {
-            setLeft(worldBounds.getRight());
+        if (getRight() < worldbounds.getLeft()) {
+            setLeft(worldbounds.getRight());
         }
     }
 
@@ -42,12 +42,12 @@ public class MainShip extends Sprite {
     public void resize(Rect worldBounds) {
         setHeightProportion(HEIGHT);
         setBottom(worldBounds.getBottom() + BOTTOM_MARGIN);
-        this.worldBounds = worldBounds;
+        this.worldbounds = worldBounds;
     }
 
     @Override
     public boolean touchDown(Vector2 touch, int pointer, int button) {
-        if (touch.x < worldBounds.pos.x) {
+        if (touch.x < worldbounds.pos.x) {
             if (leftPointer != INVALID_POINTER)
                 return false;
             leftPointer = pointer;

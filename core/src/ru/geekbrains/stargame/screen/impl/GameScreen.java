@@ -13,18 +13,19 @@ import ru.geekbrains.stargame.sprite.impl.Star;
 public class GameScreen extends BaseScreen {
     private static final int STAR_COUNT = 256;
     private Background background;
-    private Texture backGroundImg;
+    private Texture img;
     private Star[] stars;
     private TextureAtlas atlas;
     private MainShip mainShip;
+
 
 
     @Override
     public void show() {
         super.show();
         atlas = new TextureAtlas("data/mainAtlas.tpack");
-        backGroundImg = new Texture("data/backGroundImg.png");
-        background = new Background(backGroundImg);
+        img = new Texture("data/backGroundImg.png");
+        background = new Background(img);
         stars = new Star[STAR_COUNT];
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star(atlas);
